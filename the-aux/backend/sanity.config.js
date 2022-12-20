@@ -7,7 +7,7 @@ export default defineConfig({
   name: 'default',
   title: 'backend',
 
-  projectId: '71ce37nc',
+  projectId: 'hgp3ay93',
   dataset: 'production',
 
   plugins: [deskTool(), visionTool()],
