@@ -5,6 +5,7 @@ import {Post} from "../../typings";
 import PortableText from "react-portable-text";
 import {useForm, submitHandler} from "react-hook-form";
 import React, { useState } from 'react';
+// import comment from "../backend/schems/comment"
 
 interface IFormInput{
 	_id: string;
@@ -20,6 +21,8 @@ interface Props{
 function Post({ post }:Props){
 	const [submitted, setSubmitted] = useState(false);
 
+	// console.log(posts);
+
 	const {
 		register, 
 		handleSubmit, 
@@ -27,7 +30,7 @@ function Post({ post }:Props){
 	} = useForm<IFormInput>();
 
 	const onSubmit: submitHandler<IFormInput> = (data)=>{
-		fetch('/api/createComment',{
+		 fetch('/api/createComment',{
 			method:'POST',
 			body: JSON.stringify(data),
 		}).then(()=>{
@@ -38,6 +41,7 @@ function Post({ post }:Props){
 			setSubmitted(false)
 		})
 	}
+	// console.log(comment.name)
 
 	return( 
 	<main>
@@ -127,6 +131,19 @@ function Post({ post }:Props){
 					"/>
 			</form>
 			)}
+
+			{/*comment*/}
+			<div>
+				<h3>Comments</h3>
+				<hr/>
+
+				{post.comments.map((comment)=>(
+					<div>
+						<p>{Comment.name}:{Comment.comment}</p>
+					</div>
+				))}
+			</div>
+
 	</main>
 	);
 }
