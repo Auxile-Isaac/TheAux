@@ -2,7 +2,7 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import Header from "../components/Header" ;
 import {sanityClient, urlFor} from "../sanity";
-import { post } from '../typings';
+import { Post } from '../typings';
 import Link from 'next/link';
 
 interface Props{

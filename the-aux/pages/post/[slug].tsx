@@ -3,7 +3,7 @@ import Header from "../../components/Header" ;
 import {sanityClient, urlFor} from "../../sanity";
 import {Post} from "../../typings";
 import PortableText from "react-portable-text";
-import {useForm, submitHandler} from "react-hook-form";
+import {useForm, SubmitHandler} from "react-hook-form";
 import React, { useState } from 'react';
 // import comment from "../backend/schems/comment"
 
@@ -29,7 +29,7 @@ function Post({ post }:Props){
 		formState:{errors}
 	} = useForm<IFormInput>();
 
-	const onSubmit: submitHandler<IFormInput> = (data)=>{
+	const onSubmit: SubmitHandler<IFormInput> = (data)=>{
 		 fetch('/api/createComment',{
 			method:'POST',
 			body: JSON.stringify(data),
